@@ -1,0 +1,19 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "urlPath": "/probation-access-control/health/ping",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "jsonBody": {
+          "status": "UP"
+        },
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      }
+    }
+  ]
+}

@@ -62,4 +62,7 @@ export const getMatchingRequests = (body: FindRequestCriteria): Promise<FoundReq
     .then(data => data.body.requests)
 
 export const resetStubs = (): Promise<Response[]> =>
-  Promise.all([superagent.delete(`${url}/mappings`), superagent.delete(`${url}/requests`)])
+  // Use the `/mappings/reset` endpoint (reloads file-backed mappings) rather than `DELETE /mappings`,
+  // which fails for multi-mapping JSON files ("NotWritableException") and otherwise physically
+  // deletes the on-disk stub files for single-mapping files.
+  Promise.all([superagent.post(`${url}/mappings/reset`), superagent.delete(`${url}/requests`)])

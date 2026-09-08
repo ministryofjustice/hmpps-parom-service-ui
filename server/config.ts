@@ -72,14 +72,32 @@ export default {
       agent: new AgentConfig(Number(get('TOKEN_VERIFICATION_API_TIMEOUT_RESPONSE', 5000))),
       enabled: get('TOKEN_VERIFICATION_ENABLED', 'false') === 'true',
     },
-    exampleApi: {
-      url: get('EXAMPLE_API_URL', 'http://localhost:8080', requiredInProduction),
+    parom: {
+      url: get('PAROM_API_URL', 'http://localhost:9091/parom-api', requiredInProduction),
       healthPath: '/health/ping',
       timeout: {
-        response: Number(get('EXAMPLE_API_TIMEOUT_RESPONSE', 5000)),
-        deadline: Number(get('EXAMPLE_API_TIMEOUT_DEADLINE', 5000)),
+        response: Number(get('PAROM_API_TIMEOUT_RESPONSE', 5000)),
+        deadline: Number(get('PAROM_API_TIMEOUT_DEADLINE', 5000)),
       },
-      agent: new AgentConfig(Number(get('EXAMPLE_API_TIMEOUT_RESPONSE', 5000))),
+      agent: new AgentConfig(Number(get('PAROM_API_TIMEOUT_RESPONSE', 5000))),
+    },
+    ndeliusIntegration: {
+      url: get('NDELIUS_INTEGRATION_URL', 'http://localhost:9091/ndelius', requiredInProduction),
+      healthPath: '/health/ping',
+      timeout: {
+        response: Number(get('NDELIUS_INTEGRATION_TIMEOUT_RESPONSE', 10000)),
+        deadline: Number(get('NDELIUS_INTEGRATION_TIMEOUT_DEADLINE', 10000)),
+      },
+      agent: new AgentConfig(Number(get('NDELIUS_INTEGRATION_TIMEOUT_RESPONSE', 10000))),
+    },
+    probationAccessControl: {
+      url: get('PROBATION_ACCESS_CONTROL_URL', 'http://localhost:9091/probation-access-control', requiredInProduction),
+      healthPath: '/health/ping',
+      timeout: {
+        response: Number(get('PROBATION_ACCESS_CONTROL_API_TIMEOUT_RESPONSE', 5000)),
+        deadline: Number(get('PROBATION_ACCESS_CONTROL_API_TIMEOUT_DEADLINE', 5000)),
+      },
+      agent: new AgentConfig(Number(get('PROBATION_ACCESS_CONTROL_API_TIMEOUT_RESPONSE', 5000))),
     },
   },
   sqs: {

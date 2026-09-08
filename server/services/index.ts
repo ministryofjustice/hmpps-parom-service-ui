@@ -1,14 +1,16 @@
 import { dataAccess } from '../data'
 import AuditService from './auditService'
-import ExampleService from './exampleService'
+import ParomService from './paromService'
+import CommonUtils from './commonUtils'
 
 export const services = () => {
-  const { applicationInfo, hmppsAuditClient, exampleApiClient } = dataAccess()
+  const { applicationInfo, hmppsAuditClient, paromApiClient } = dataAccess()
 
   return {
     applicationInfo,
     auditService: new AuditService(hmppsAuditClient),
-    exampleService: new ExampleService(exampleApiClient),
+    paromService: new ParomService(paromApiClient),
+    commonUtils: new CommonUtils(),
   }
 }
 
