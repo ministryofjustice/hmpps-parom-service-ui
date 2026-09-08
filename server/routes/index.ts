@@ -3,7 +3,7 @@ import { Router } from 'express'
 import type { Services } from '../services'
 import { Page } from '../services/auditService'
 
-export default function routes({ auditService, paromService }: Services): Router {
+export default function routes({ auditService }: Services): Router {
   const router = Router()
 
   router.get('/', async (req, res, _next) => {
