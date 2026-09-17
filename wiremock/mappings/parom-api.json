@@ -1,0 +1,32 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "urlPath": "/parom-api/health/ping",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "jsonBody": {
+          "status": "UP"
+        },
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      }
+    },
+    {
+      "request": {
+        "urlPath": "/parom-api/parom/time",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "jsonBody": "2021-01-01 12:00:00",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+name: Integration tests
+
+on:
+  workflow_call:
+    inputs:
+      node_version_file:
+        description: "Passed to setup-node action to specify where to source the version of node from"
+        required: false
+        type: string
+        default: ".nvmrc"
+
+permissions:
+  contents: read
+
+jobs:
+  integration_test:
+    name: Run the integration tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Use Node.js ${{ inputs.node_version_file }}
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: ${{ inputs.node_version_file }}
+
+      - name: download artifacts
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: npm_build_artifacts
+
+      - name: Start wiremock container
+        shell: bash
+        run: docker compose up -d wiremock
+
+      - name: restore cache
+        id: restore-cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        env:
+          cache-name: node-modules
+        with:
+          path: |
+            ./node_modules
+            ~/.cache/Cypress
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json', '!**/node_modules/**') }}
+
+      - name: download the artifacts
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: npm_build_artifacts
+          path: |
+            build/
+            dist/
+            assets/stylesheets/
+
+      - name: Install dependencies via allowlist
+        run: npm run setup
+
+      - name: Prepare and run integration tests
+        id: integration-tests
+        shell: bash
+        run: |
+          nohup npm run start-feature &
+          sleep 5
+          npm run int-test
+
+      - name: upload results
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: npm_integration_test_artifacts
+          path: |
+            integration_tests/videos/
+            integration_tests/screenshots/
+            coverage/
+            test_results/
+            ctrf/
+
+      - name: fail the action if the tests failed
+        if: ${{ steps.integration-tests.outcome == 'failure' }}
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            core.setFailed('Integration tests failed')

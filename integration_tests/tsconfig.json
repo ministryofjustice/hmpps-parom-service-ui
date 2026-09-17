@@ -1,9 +1,10 @@
 {
   "extends": "@tsconfig/node24/tsconfig.json",
   "compilerOptions": {
+    "target": "es2017",
     "noEmit": true,
-    "lib": ["es5", "dom", "es2015.promise"],
-    "types": ["@playwright/test"],
+    "lib": ["es2017", "dom"],
+    "types": ["cypress", "express", "express-session"],
     "esModuleInterop": true,
     "skipLibCheck": true
   },
