@@ -13,7 +13,7 @@ export default configureAllowedScripts({
     // Native solution to quickly resolve module paths, used by jest and eslint
     'node_modules/unrs-resolver@1.12.2': 'ALLOW',
     // Needed by cypress to install its binary
-    'node_modules/cypress@16.0.0': 'ALLOW',
+    'node_modules/cypress@16.1.0': 'ALLOW',
     'node_modules/protobufjs@7.6.6': 'ALLOW',
   },
 })
