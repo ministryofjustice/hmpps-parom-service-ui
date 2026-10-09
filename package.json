@@ -30,7 +30,7 @@
   "dependencies": {
     "@aws-sdk/client-sqs": "^3.1141.0",
     "@js-joda/core": "6.1.0",
-    "@js-joda/timezone": "2.25.2",
+    "@js-joda/timezone": "3.0.0",
     "@ministryofjustice/frontend": "^11.1.0",
     "@ministryofjustice/hmpps-auth-clients": "3.0.0",
     "@ministryofjustice/hmpps-azure-telemetry": "^1.1.0",
