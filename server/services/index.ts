@@ -8,8 +8,8 @@ export const services = () => {
     applicationInfo,
     hmppsAuthClient,
     paromApiClient,
-    ndeliusIntegrationApiClient,
-    probationAccessControlApiClient,
+    // ndeliusIntegrationApiClient,
+    // probationAccessControlApiClient,
     hmppsAuditClient,
   } = dataAccess()
 
