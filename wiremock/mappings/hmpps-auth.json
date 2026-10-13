@@ -24,7 +24,7 @@
       "response": {
         "status": 200,
         "jsonBody": {
-          "access_token": "******",
+          "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiam9obiBzbWl0aCIsInVzZXJfbmFtZSI6IlVTRVIxIiwic2NvcGUiOlsicmVhZCJdLCJhdXRoX3NvdXJjZSI6ImRlbGl1cyIsImF1dGhvcml0aWVzIjpbIlJPTEVfUEFST01fVVNFUiJdLCJqdGkiOiI4M2I1MGExMC1jY2E2LTQxZGItOTg1Zi1lODdlZmIzMDNkZGIiLCJjbGllbnRfaWQiOiJjbGllbnRpZCIsImlhdCI6MTcwMTk1MTM2OCwiZXhwIjo5OTk5OTk5OTk5fQ.pnrN_c0B0dmFyO9-amKWiKMsXVQUElG3FgiwOXVXDPI",
           "token_type": "bearer",
           "user_name": "USER1",
           "expires_in": 599,

@@ -1,0 +1,105 @@
+<nav class="moj-side-navigation" aria-label="Side navigation">
+  <ul class="moj-side-navigation__list">
+
+    <li class="moj-side-navigation__item {{ "moj-side-navigation__item--active" if currentPage == "basic-details" }}">
+      <a id="nav-basic-details" href="/basic-details/{{ paromId }}" aria-current="location">Basic details</a>
+    </li>
+
+    <li class="moj-side-navigation__item {{ "moj-side-navigation__item--active" if currentPage == "mental-health" }}">
+      {% if parom.basicDetailsSaved %}
+        <a id="nav-mental-health" href="/mental-health/{{ paromId }}" aria-current="location">Mental health</a>
+      {% else %}
+        <a id="nav-mental-health-disabled" href="#" aria-current="location" class="disabled-nav">Mental health</a>
+      {% endif %}
+    </li>
+
+    <li class="moj-side-navigation__item {{ "moj-side-navigation__item--active" if currentPage == "prisoner-contact" }}">
+      {% if parom.mentalHealthSaved %}
+        <a id="nav-prisoner-contact" href="/prisoner-contact/{{ paromId }}" aria-current="location">Prisoner contact</a>
+      {% else %}
+        <a id="nav-prisoner-contact-disabled" href="#" aria-current="location" class="disabled-nav">Prisoner contact</a>
+      {% endif %}
+    </li>
+
+    <li class="moj-side-navigation__item {{ "moj-side-navigation__item--active" if currentPage == "attitudes" }}">
+      {% if parom.prisonerContactSaved %}
+        <a id="nav-attitudes" href="/attitudes/{{ paromId }}" aria-current="location">Attitudes</a>
+      {% else %}
+        <a id="nav-attitudes-disabled" href="#" aria-current="location" class="disabled-nav">Attitudes</a>
+      {% endif %}
+    </li>
+
+    <li class="moj-side-navigation__item {{ "moj-side-navigation__item--active" if currentPage == "victims" }}">
+      {% if parom.attitudesSaved %}
+        <a id="nav-victims" href="/compliance/{{ paromId }}" aria-current="location">Victims</a>
+      {% else %}
+        <a id="nav-victims-disabled" href="#" aria-current="location" class="disabled-nav">Victims</a>
+      {% endif %}
+    </li>
+
+    <li class="moj-side-navigation__item {{ "moj-side-navigation__item--active" if currentPage == "custody-programmes" }}">
+      {% if parom.victimsSaved %}
+        <a id="nav-custody-programmes" href="/sign-and-send/{{ paromId }}" aria-current="location">Custody programmes and interventions</a>
+      {% else %}
+        <a id="nav-custody-programmes-disabled" href="#" aria-current="location" class="disabled-nav">Custody programmes and interventions</a>
+      {% endif %}
+    </li>
+
+    <li class="moj-side-navigation__item {{ "moj-side-navigation__item--active" if currentPage == "mappa" }}">
+      {% if parom.custodyProgrammesSaved %}
+        <a id="nav-mappa" href="/mappa/{{ paromId }}" aria-current="location">MAPPA and plans</a>
+      {% else %}
+        <a id="nav-mappa-disabled" href="#" aria-current="location" class="disabled-nav">MAPPA and plans</a>
+      {% endif %}
+    </li>
+
+    <li class="moj-side-navigation__item {{ "moj-side-navigation__item--active" if currentPage == "professional-opinions" }}">
+      {% if parom.mappaSaved %}
+        <a id="nav-professional-opinions" href="/professional-opinions/{{ paromId }}" aria-current="location">Professional opinions</a>
+      {% else %}
+        <a id="nav-professional-opinions-disabled" href="#" aria-current="location" class="disabled-nav">Professional opinions</a>
+      {% endif %}
+    </li>
+
+    <li class="moj-side-navigation__item {{ "moj-side-navigation__item--active" if currentPage == "ipp-dpp" }}">
+      {% if parom.professionalOpinionsSaved %}
+        <a id="nav-ipp-dpp" href="/ipp-dpp/{{ paromId }}" aria-current="location">IPP/DPP</a>
+      {% else %}
+        <a id="nav-ipp-dpp-disabled" href="#" aria-current="location" class="disabled-nav">IPP/DPP</a>
+      {% endif %}
+    </li>
+
+    <li class="moj-side-navigation__item {{ "moj-side-navigation__item--active" if currentPage == "member-case-assessment" }}">
+      {% if parom.ippDppSaved %}
+        <a id="nav-member-case-assessment" href="/member-case-assessment/{{ paromId }}" aria-current="location">Member case assessment</a>
+      {% else %}
+        <a id="nav-member-case-assessment-disabled" href="#" aria-current="location" class="disabled-nav">Member case assessment</a>
+      {% endif %}
+    </li>
+
+    <li class="moj-side-navigation__item {{ "moj-side-navigation__item--active" if currentPage == "conclusion" }}">
+      {% if parom.memberCaseAssessmentSaved %}
+        <a id="nav-conclusion" href="/conclusion/{{ paromId }}" aria-current="location">Conclusion</a>
+      {% else %}
+        <a id="nav-conclusion-disabled" href="#" aria-current="location" class="disabled-nav">Conclusion</a>
+      {% endif %}
+    </li>
+
+    <li class="moj-side-navigation__item {{ "moj-side-navigation__item--active" if currentPage == "sign-off" }}">
+      {% if parom.conclusionSaved %}
+        <a id="nav-sign-off" href="/sign-off/{{ paromId }}" aria-current="location">Sign off</a>
+      {% else %}
+        <a id="nav-sign-off-disabled" href="#" aria-current="location" class="disabled-nav">Sign off</a>
+      {% endif %}
+    </li>
+
+    <li class="moj-side-navigation__item {{ "moj-side-navigation__item--active" if currentPage == "check-your-answers" }}">
+      {% if parom.signOffSaved %}
+        <a id="nav-check-your-answers" href="/check-your-answers/{{ paromId }}" aria-current="location">Check your answers</a>
+      {% else %}
+        <a id="nav-check-your-answers-disabled" href="#" aria-current="location" class="disabled-nav">Check your answers</a>
+      {% endif %}
+    </li>
+
+  </ul>
+</nav>

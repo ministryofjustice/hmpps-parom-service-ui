@@ -27,6 +27,46 @@
           "Content-Type": "application/json;charset=UTF-8"
         }
       }
+    },
+    {
+      "request": {
+        "url": "/parom-api/parom/00000000-0000-0000-0000-000000000001",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "jsonBody": {
+          "id": "00000000-0000-0000-0000-000000000001",
+          "crn": "X012345",
+          "completedDate": null
+        },
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        },
+        "transformers": [
+          "response-template"
+        ]
+      }
+    },
+    {
+      "request": {
+        "url": "/parom-api/parom/00000000-0000-0000-0000-100000000005",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "jsonBody": {
+          "id": "00000000-0000-0000-0000-100000000005",
+          "crn": "X100501",
+          "completedDate": null
+        },
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        },
+        "transformers": [
+          "response-template"
+        ]
+      }
     }
   ]
 }
