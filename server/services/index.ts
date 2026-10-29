@@ -4,20 +4,13 @@ import ParomService from './paromService'
 import CommonUtils from './commonUtils'
 
 export const services = () => {
-  const {
-    applicationInfo,
-    hmppsAuthClient,
-    paromApiClient,
-    // ndeliusIntegrationApiClient,
-    // probationAccessControlApiClient,
-    hmppsAuditClient,
-  } = dataAccess()
+  const { applicationInfo, hmppsAuthClient, hmppsAuditClient } = dataAccess()
 
   return {
     applicationInfo,
     hmppsAuthClient,
     auditService: new AuditService(hmppsAuditClient),
-    paromService: new ParomService(paromApiClient),
+    paromService: new ParomService(),
     commonUtils: new CommonUtils(),
   }
 }

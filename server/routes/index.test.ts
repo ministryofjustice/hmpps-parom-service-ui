@@ -4,13 +4,12 @@ import { appWithAllRoutes, user } from './testutils/appSetup'
 import AuditService, { Page } from '../services/auditService'
 import ParomService from '../services/paromService'
 import HmppsAuditClient from '../data/hmppsAuditClient'
-import ParomApiClient from '../data/paromApiClient'
 
 jest.mock('../services/auditService')
 jest.mock('../services/paromService')
 
 const auditService = new AuditService({} as HmppsAuditClient) as jest.Mocked<AuditService>
-const paromService = new ParomService({} as ParomApiClient) as jest.Mocked<ParomService>
+const paromService = new ParomService() as jest.Mocked<ParomService>
 
 let app: Express
 
