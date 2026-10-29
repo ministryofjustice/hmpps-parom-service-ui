@@ -20,9 +20,7 @@ export default function basicDetailsRoutes(
     const paromId: string = req.params.id
     // const callingScreen: string = req.query.returnTo as string
     // const basicDetails: BasicDetails = null
-    let parom: Parom = null
-
-    parom = await paromClient.getParomById(paromId, res.locals.user.username)
+    const parom: Parom = await paromClient.getParomById(paromId, res.locals.user.username)
 
     if (await commonUtils.redirectRequired(parom, paromId, res, authenticationClient)) return
 
