@@ -65,7 +65,7 @@
     "@ministryofjustice/eslint-config-hmpps": "^2.0.0-alpha.3",
     "@ministryofjustice/frontend-types": "2.0.3",
     "@ministryofjustice/hmpps-precommit-hooks": "3.0.2",
-    "@tsconfig/node24": "^24.0.5",
+    "@tsconfig/node26": "^26.0.1",
     "@types/bunyan": "^1.8.11",
     "@types/bunyan-format": "^0.2.9",
     "@types/compression": "^1.8.1",
@@ -112,7 +112,7 @@
   },
   "allowScripts": {
     "@parcel/watcher@2.6.0": true,
-    "cypress@16.1.1": true,
+    "cypress@16.2.0": true,
     "dtrace-provider@0.8.8": true,
     "esbuild@0.28.2": true,
     "fsevents@2.3.3": true,
